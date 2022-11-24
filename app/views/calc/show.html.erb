@@ -1,0 +1,17 @@
+<h1 align="center">Посчитали</h1>
+<p align="center">Модифицированный массив</p>
+<table border=1 align="center">
+  <tr>
+    <td>Индекс</td>
+    <td>  Число  </td>
+  </tr>
+  <% @arr_a.each_with_index do |number, index| %>
+    <tr>
+      <td align="center"> <%= index %> </td>
+      <td align="center"> <%= number %> </td>
+    </tr>
+  <% end %>
+</table>
+<p align="center">Произведение отрицательных элементов: <%= @a %></p>
+<p align="center">Изменили элемент с индексом: <%= @index %></p>
+<a href=/>Вернуться
