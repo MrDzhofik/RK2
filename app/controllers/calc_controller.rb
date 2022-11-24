@@ -6,11 +6,8 @@ class CalcController < ApplicationController
 
   def show
     @arr_a = params[:array].split.map!(&:to_f)
-    @otr = []
-    @arr_a.each do |x|
-      @otr.append(x) if x.negative?
-    end
-    find_a
+    @otr = @arr_a.select { |x| x if x.negative? }
+    @a = find_a
     len = @arr_a.length - 1
     return unless len >= 3
 
@@ -19,10 +16,10 @@ class CalcController < ApplicationController
   end
 
   def find_a
-    @a = if @otr.length.zero?
-           0
-         else
-           @otr.inject(1) { |elem, multy| elem * multy }
-         end
+    if @otr.length.zero?
+      0
+    else
+      @otr.inject(1) { |elem, multy| elem * multy }
+    end
   end
 end
